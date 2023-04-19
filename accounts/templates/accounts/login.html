@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Login |{% endblock %}
+{% block conteudo %}
+{% include 'parciais/_nav_login.html' %}
+{% block nav %}
+  {% comment %} {% include 'parciais/_nav.html' %} {% endcomment %}
+{% endblock %}
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+    <br>
+    <h2 class="text-center">Login</h2>
+    <br>
+    <div class="col d-flex justify-content-center">
+    <div class="card w-50 border-0">
+      <form method="post" action="{% url 'login' %}">
+        <!-- Email input -->
+        {% csrf_token %}
+        {% if messages %}
+            {% include 'parciais/_messages.html'%}
+        {% endif %}
+        <div class="form-outline mb-4">
+            <input type="{{ form.username.field.widget.input_type }}" name="{{ form.username.html_name }}" class="form-control" required="true">
+        </div>
+        <div class="form-outline mb-4">
+            <input type="{{ form.password.field.widget.input_type }}" name="{{ form.password.html_name }}" class="form-control" required="true">
+        </div>
+        <div class="row g-3">
+            <div class="col">
+                <a href="{% url 'cadastro' %}" class="btn btn-primary btn-block mb-4">Cadastre-se</a>
+            </div>
+            <div class="col">
+        <button type="submit" class="btn btn-primary btn-block mb-4">Entrar</button>
+            </div>
+      </form>
+      
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}
