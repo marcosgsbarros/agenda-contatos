@@ -3,11 +3,8 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 from .forms import CadastroForm,AutenticacaoForm
 from django.contrib.auth.views import LoginView,LogoutView
-from django.contrib.auth.mixins import AccessMixin
-from django.contrib.auth import authenticate, login
+from django.contrib.auth.mixins import AccessMixin,LoginRequiredMixin
 from django.shortcuts import redirect
-from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
 
 
 #verfica se o usuario está logado
@@ -43,9 +40,7 @@ class CadastroView(NonAuthenticatedUserMixin,CreateView):
     template_name = 'cadastro.html'
     
     #Valida formulario de cadastro e mostra mensagem de erro ou sucesso
-    def form_valid(self, form):
-        
-        author = self.request.user       
+    def form_valid(self, form):     
         form.save()
         
         messages.success(self.request,'Cadastro feito com sucesso')
@@ -57,8 +52,8 @@ class CadastroView(NonAuthenticatedUserMixin,CreateView):
         return super().form_invalid(form)
 
 #Dashboard mostra quem está logado no sistema
-@method_decorator(login_required, name='dispatch')
-class DashboardView(TemplateView):
+
+class DashboardView(LoginRequiredMixin,TemplateView):
     
     template_name = "dashboard.html"
 
