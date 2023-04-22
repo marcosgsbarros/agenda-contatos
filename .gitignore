@@ -4,4 +4,4 @@ __pycache__
 .env
 .idea
 template/*
-venv/*
+env/*
