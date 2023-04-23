@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-^0o5veh5orz@=u=0qd)$*edd%o%eyo7ct$um23nb$9@kvlk@9m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['agenda-contatos-production.up.railway.app']
+ALLOWED_HOSTS = ['.up.railway.app']
 
 
 # Application definition
