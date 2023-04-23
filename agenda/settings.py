@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 from django.contrib.messages import constants as messages
 import dj_database_url
 
@@ -28,7 +29,6 @@ SECRET_KEY = 'django-insecure-^0o5veh5orz@=u=0qd)$*edd%o%eyo7ct$um23nb$9@kvlk@9m
 DEBUG = False
 
 ALLOWED_HOSTS = [".up.railway.app"]
-
 
 # Application definition
 
@@ -77,6 +77,7 @@ WSGI_APPLICATION = 'agenda.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASE_URL = 'postgresql://postgres:3H6E83gdaUGJeRn9a7al@containers-us-west-203.railway.app:6134/railway'
 
 DATABASES = {
@@ -102,6 +103,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -120,8 +127,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'templates/static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
 
 
 # Default primary key field type
@@ -142,3 +151,5 @@ MESSAGE_TAGS = {
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
 
+
+CSRF_COOKIE_SECURE = True

@@ -3,7 +3,6 @@ from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth.models import User
 
 
-
 class CadastroForm(UserCreationForm):
     email = forms.EmailField(required=True)
     first_name = forms.CharField(required=True)
@@ -17,6 +16,7 @@ class CadastroForm(UserCreationForm):
 class AutenticacaoForm(AuthenticationForm):
     username = forms.CharField()
     password = forms.PasswordInput()
+    
 
 
 
