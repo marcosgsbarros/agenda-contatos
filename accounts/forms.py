@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth.models import User
-
+from django.middleware.csrf import get_token
 
 
 class CadastroForm(UserCreationForm):
@@ -17,6 +17,11 @@ class CadastroForm(UserCreationForm):
 class AutenticacaoForm(AuthenticationForm):
     username = forms.CharField()
     password = forms.PasswordInput()
+    
+    csrf_token = forms.CharField(widget=forms.HiddenInput())
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['csrf_token'].initial = get_token(self.request)
 
 
 
