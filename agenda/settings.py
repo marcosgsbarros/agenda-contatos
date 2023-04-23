@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import dj_database_url
 from django.contrib.messages import constants as messages
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +28,7 @@ SECRET_KEY = 'django-insecure-^0o5veh5orz@=u=0qd)$*edd%o%eyo7ct$um23nb$9@kvlk@9m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["agenda-contatos-production.up.railway.app"]
+ALLOWED_HOSTS = [".vercel.app"]
 
 # Application definition
 
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'contatos.apps.ContatosConfig',
     'accounts.apps.AccountsConfig',
-    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -51,7 +51,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'agenda.urls'
@@ -79,7 +78,7 @@ WSGI_APPLICATION = 'agenda.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-DATABASE_URL = 'postgresql://postgres:3H6E83gdaUGJeRn9a7al@containers-us-west-203.railway.app:6134/railway'
+DATABASE_URL = 'postgres://abdyfinr:Ho-CkLBqJfWgmWZzupl2p79QZaZVggMf@tuffi.db.elephantsql.com/abdyfinr'
 
 DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800, ssl_require=True),
@@ -122,7 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'templates/static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles_build'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
