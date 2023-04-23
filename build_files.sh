@@ -1,7 +1,7 @@
 #! bin/bash
 
-echo "contruindo o projeto"
-python3.11 -m pip install -r requirements.txt
+echo "construindo o projeto"
+python -m pip install -r requirements.txt
 
 
 echo "fazendo migrations"
