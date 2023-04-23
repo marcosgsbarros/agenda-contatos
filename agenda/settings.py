@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'agenda.wsgi.application'
 DATABASE_URL= 'postgresql://postgres:w0fbjN71hsMNYvJSb0Qk@containers-us-west-166.railway.app:5439/railway'
 
 DATABASES = {
-    'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+    'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800, ssl_require=True),
 }
 
 # Password validation
