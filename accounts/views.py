@@ -5,7 +5,6 @@ from .forms import CadastroForm,AutenticacaoForm
 from django.contrib.auth.views import LoginView,LogoutView
 from django.contrib.auth.mixins import AccessMixin,LoginRequiredMixin
 from django.shortcuts import redirect
-from django.views.decorators.csrf import requires_csrf_token
 
 
 #verfica se o usuario está logado
@@ -17,7 +16,6 @@ class NonAuthenticatedUserMixin(AccessMixin,View):
         return super().dispatch(request, *args, **kwargs)
 
 #Valida o formulario de login
-@requires_csrf_token
 class LoginView(NonAuthenticatedUserMixin,LoginView):
     
     form_class = AutenticacaoForm
