@@ -160,3 +160,4 @@ LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
 
 CSRF_COOKIE_SECURE = True
+CORS_ORIGIN_WHITELIST = ['https://agenda-contatos-production.up.railway.app',]
