@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import dj_database_url
 from django.contrib.messages import constants as messages
-import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +27,7 @@ SECRET_KEY = 'django-insecure-^0o5veh5orz@=u=0qd)$*edd%o%eyo7ct$um23nb$9@kvlk@9m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [".up.railway.app"]
+ALLOWED_HOSTS = ["agenda-contatos-production.up.railway.app"]
 
 # Application definition
 
