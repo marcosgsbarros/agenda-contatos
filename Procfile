@@ -1,1 +1,1 @@
-web: gunicorn agenda.wsgi --bind 0.0.0.0:$PORT --workers 2 --preload
+web: gunicorn agenda.wsgi --preload --workers 2
