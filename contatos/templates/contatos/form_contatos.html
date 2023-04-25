@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load bootstrap5 %}
+
 {% block conteudo %}
 <div class="container">
     <div class="row">
@@ -7,22 +9,22 @@
             <div class="container">
                 <div class="row">
                 <div class="col-lg-12">
-                <h1 class="mt-3 mb-3 text-center" >Editar Contato</h1><br>
+                <h1 class="mt-3 mb-3 text-center" >Cadastro de Contato</h1><br>
                 <div class="col d-flex justify-content-center" >
                 <div class="card w-50 border-0">
                         <div class="row g-3">
                             <div class="col">
-                                <form action="{% url 'editar' contato.id %} " method="post" enctype="multipart/form-data">
+                                <form method="post" enctype="multipart/form-data">
 
                                     {% csrf_token %}
                                     {% if messsages %}
                                         {% include 'parciais/_messages.html' %}
                                     {% endif %}
                                     <table class="table" >
-                                     {{ form }}
+                                        {% bootstrap_form form %}
                                     </table>
                                     <div class="col">
-                                        <button type="submit" class="btn btn-primary btn-block mb-4">Editar Contato</button>
+                                        <button type="submit" class="btn btn-primary btn-block mb-4">Salvar Contato</button>
                                     </div>
                                 </form>
                             </div>

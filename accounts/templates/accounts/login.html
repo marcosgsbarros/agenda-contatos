@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bootstrap5 %}
 {% block title %}Login |{% endblock %}
 {% block conteudo %}
 {% include 'parciais/_nav_login.html' %}
@@ -19,12 +20,7 @@
         {% if messages %}
             {% include 'parciais/_messages.html'%}
         {% endif %}
-        <div class="form-outline mb-4">
-            <input type="{{ form.username.field.widget.input_type }}" name="{{ form.username.html_name }}" class="form-control" required="true">
-        </div>
-        <div class="form-outline mb-4">
-            <input type="{{ form.password.field.widget.input_type }}" name="{{ form.password.html_name }}" class="form-control" required="true">
-        </div>
+        {% bootstrap_form form %}
         <div class="row g-3">
             <div class="col">
                 <a href="{% url 'cadastro' %}" class="btn btn-primary btn-block mb-4">Cadastre-se</a>

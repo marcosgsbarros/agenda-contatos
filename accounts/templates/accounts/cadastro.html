@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bootstrap5 %}
 {% block title %}Cadastro |{% endblock %}
 {% block conteudo %}
 {% include 'parciais/_nav_login.html' %}
@@ -19,18 +20,7 @@
     
     <div class="row g-3">
         <div class="col">
-            <label for="{{ form.username.id_for_label }}">Username: </label>
-            <input type="{{ form.username.field.widget.input_type }}" name="{{ form.username.html_name }}" id="{{ form.username.id_for_label }}" value="{{ form.username.value|default:'' }}" class="form-control" required="true">
-            <label for="{{ form.email.id_for_label }}">E-mail: </label>
-            <input type="{{ form.email.field.widget.input_type }}" name="{{ form.email.html_name }}" id="{{ form.email.id_for_label }}" value="{{ form.email.value|default:'' }}" class="form-control" required="true">
-            <label for="{{ form.first_name.id_for_label }}">Nome: </label>
-            <input type="{{ form.first_name.field.widget.input_type }}" name="{{ form.first_name.html_name }}" id="{{ form.first_name.id_for_label }}" value="{{ form.first_name.value|default:'' }}" class="form-control" required="true">
-            <label for="{{ form.last_name.id_for_label }}">Sobrenome: </label>
-            <input type="{{ form.last_name.field.widget.input_type }}" name="{{ form.last_name.html_name }}" id="{{ form.last_name.id_for_label }}" value="{{ form.last_name.value|default:'' }}" class="form-control" required="true">
-            <label for="{{ form.password1.id_for_label }}">Senha: </label>
-            <input type="{{ form.password1.field.widget.input_type }}" name="{{ form.password1.html_name }}" id="{{ form.password1.id_for_label }}" value="{{ form.password1.value|default:'' }}" class="form-control" required="true">
-            <label for="{{ form.password2.id_for_label }}">Confirmação de Senha: </label>
-            <input type="{{ form.password2.field.widget.input_type }}" name="{{ form.password2.html_name }}" id="{{ form.password2.id_for_label }}" value="{{ form.password2.value|default:'' }}" class="form-control" required="true">
+            {% bootstrap_form form %}
         </div>
     </div><br>
     <div class="row g-3">

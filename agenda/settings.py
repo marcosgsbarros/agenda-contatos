@@ -26,13 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^0o5veh5orz@=u=0qd)$*edd%o%eyo7ct$um23nb$9@kvlk@9m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [".vercel.app"]
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
 INSTALLED_APPS = [
+    'bootstrap5',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,11 +79,22 @@ WSGI_APPLICATION = 'agenda.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-DATABASE_URL = 'postgres://abdyfinr:Ho-CkLBqJfWgmWZzupl2p79QZaZVggMf@tuffi.db.elephantsql.com/abdyfinr'
-
 DATABASES = {
-    'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800, ssl_require=True),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'agenda',
+        'USER': 'postgres',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
+
+# DATABASE_URL = 'postgres://abdyfinr:Ho-CkLBqJfWgmWZzupl2p79QZaZVggMf@tuffi.db.elephantsql.com/abdyfinr'
+
+# DATABASES = {
+#     'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800, ssl_require=True),
+# }
 
 
 # Password validation
