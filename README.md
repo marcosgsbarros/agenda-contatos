@@ -11,7 +11,7 @@ Cada usu√°rio tem acesso somente aos contatos criados por ele mesmo, com excess√
 
 -----
 
-<!-- ![ ](tela_cadastro.png) -->
+![ ](tela_cadastro.png)
 
 -----
 
